@@ -66,12 +66,13 @@ app.get('/room/:id',ensureAuthenticated, (req, res) => {
         layout: "layout/no-page-wrap" 
     })
 })
+
 io.on('connection', socket => {
     socket.on('join-room', (roomId, userId) => {
       socket.join(roomId)
       socket.to(roomId).emit('user-connected', userId, roomId)
       })
-  })
+})
 
 server.listen(3000, () => {
     console.log('Connected to port: 3000')

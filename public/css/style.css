@@ -345,7 +345,7 @@ iframe {
 #video-grid {
     display: flex;
     flex-wrap: wrap;
-}
+} 
 video {
     height: 200px;
     width: 310px;

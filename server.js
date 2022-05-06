@@ -4,7 +4,8 @@ const expressLayouts = require('express-ejs-layouts')
 
 const app = express()
 const server = require('http').Server(app)
-const io = require('socket.io')(server)
+const io = require('socket.io')
+socket = io(server);
 
 const bodyParser = require('body-parser')
 const passport = require('passport')
@@ -57,7 +58,7 @@ app.use('/teacher',ensureAuthenticated,authRole('teacher'),authApproval, teacher
 app.use('/student', ensureAuthenticated,authRole('student'),authApproval, studentRouter)
 app.use('/user', userRouter)
 
-// Video Call 
+
 app.get('/room/:id',ensureAuthenticated, (req, res) => {
     const userId = req.user.id
     res.render('[video-room]', {
@@ -67,11 +68,15 @@ app.get('/room/:id',ensureAuthenticated, (req, res) => {
     })
 })
 
-io.on('connection', socket => {
-    socket.on('join-room', (roomId, userId) => {
-      socket.join(roomId)
-      socket.to(roomId).emit('user-connected', userId, roomId)
-      })
+socket.on('connection', socket => {
+    socket.on("chat message", function(msg) {
+        console.log("message: " + msg);
+        socket.emit("received", { message: msg });
+    })
+    // socket.on('join-room', (roomId, userId) => {
+    //   socket.join(roomId)
+    //   socket.to(roomId).emit('user-connected', userId, roomId)
+    //   })
 })
 
 server.listen(3000, () => {

@@ -1,9 +1,22 @@
 const express = require('express')
 const User = require('../models/registeredUsers')
+const Notification = require('../models/notification')
 const router = express.Router()
 
 router.get('/', async (req,res) => {
-    res.render("office/index")
+    res.render("office/index",)
+})
+
+router.post('/notification', async (req, res) => {
+	const notification = new Notification({
+		message: req.body.message,
+	})
+	try {
+		let notifications = await notification.save()
+		res.redirect('/office')
+	} catch {
+		res.redirect('/error')
+	}
 })
 
 // Details --------------------------------------------------

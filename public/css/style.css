@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+body, html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color:#e7ecef;
+}
+a {
+    text-decoration: none;
+}
+h1 {
+    margin: 20px 0;
+    font-size: 36px;
+    font-weight: 500;
+}
+#page-wrap{
+    background-color: white;
+    border: 1px solid #657eae40;
+    box-shadow: -8px 12px 18px 0 #dadee8;
+    width: 67%;
+    min-height: 91vh;
+    margin: 0 auto;
+    padding: 80px 30px 0px;
+}
+.banner {
+    font-size: 48px;
+    text-align: center;
+    background-color: #657d9e;
+    opacity: 0.9;
+    background-size: cover;
+    color: white;
+    border-radius: 15px;
+    padding: 80px 0;
+}
+.divider {
+    width: 95%;
+    margin: 30px auto;
+    border: 1px solid #e7e7e7;
+}
+.footer{
+    position:fixed;
+    left:0;
+    bottom: 0;
+    width:100%;
+    padding:10px 0;
+    color:#0c4777;
+    border-top: 1px solid #caccd6;
+    background-color: #ccdfee;
+    text-align: center;
+}
+
+/* Navbar -------------------------------------------------- */
+
+.navbar {
+    position: fixed; top: 0;
+    background-color: white ;
+    box-shadow: -8px 3px 7px 0 #dadee8;
+    width: 100%;
+    z-index: 10;
+}
+.navbar > .logo {
+    float: left;
+    display: block;
+    color: #305e83;
+    padding: 10px 0 12px 25px;
+    font-size: 26px;
+}
+.navbar > .nav-link {
+    float: right;
+    color: #305e83;
+    border-radius: 8px;
+    margin: 8px 10px 0 0;
+    padding:10px 17px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* Homepage ----------------------------------------------- */
+
+.container > img{
+    width: 80%;
+    height: auto;
+    position: absolute;
+    top: 150px;
+    left: 25px;
+    z-index: -1;
+}
+.container > .welcome-card h1{
+    margin: 25px 0 -15px;
+}
+.container > .welcome-card .divider {
+    margin: 35px auto;
+}
+.container > .welcome-card {
+    float: right;
+    margin:255px 270px 0 0;
+    width: 400px;
+    border-radius: 25px;
+    background-color: white;
+    border: 1px solid #dad9d9;
+    box-shadow: 0 3px 1px -2px #00000033, 0 2px 2px 0 #00000024;
+    text-align: center;
+}
+.container > .welcome-card > .card-body {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    color:#5f6368;;
+    margin-bottom: 40px;
+}
+
+/* Login & Register page ---------------------------------------- */
+
+.form-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.form-box {
+    position: relative;
+    border-radius: 15px;
+    width: 380px;
+    padding: 16px 36px;
+    border: 1px solid lightgray;
+    box-shadow: 0 3px 1px -2px #00000033, 0 2px 2px 0 #00000024;
+    overflow: hidden;
+    background-color: white; 
+    text-align: center;
+}
+.form-box > label {
+    display: block;
+    margin: 24px 0;
+}
+.form-box > .form-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 -4px 0 -17px;
+}
+.boxmessage {
+    padding: 13px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+}
+.success{
+    background-color: #029666;
+}
+.closebtn {
+    margin-left: 18px;
+    color: white;
+    font-weight: 500;
+    float: right;
+    font-size: 22px;
+    line-height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.closebtn:hover {
+    color: black;
+}
+
+/* Office Page ---------------------------------------------------------*/
+
+.heading {
+    font-size: 36px;
+    font-weight: 500;
+    color: #4d708d;
+    margin-left: 38px;
+}
+.heading.heading-btn > .btn{
+    margin: -10px;
+    color: #4d708d;
+    cursor: pointer;
+}
+.heading.heading-btn > .btn > svg{
+    height: 40px;
+    width: 40px;
+}
+/* #add-notification-model {
+    display: none;
+} */
+#add-notification-model > form{
+    display: flex;
+    align-items: center;
+}
+#add-notification-model > form > label.pure-material-textfield-outlined {
+    width: 520px;
+    margin: 15px 10px 5px 48px;
+}
+#add-notification-model > form > label.pure-material-select-outlined {
+    width: 280px;
+    margin: 15px 25px 5px 15px;
+}
+#add-notification-model > form > button {
+    margin: 10px 10px 0 0;
+}
+/* Student & Teacher Page -------------------------------------------------------- */
+
+span.label-heading {
+    font-size: 18px;
+    font-weight: 500;
+    color: #4d708d;
+}
+.previous-page-link > a > svg {
+    position: absolute;
+    margin: 10px 0 0 -4px;
+    width: 35px;
+    height: 35px;
+    color: #4d708d;
+}
+.previous-page-link > a > svg:hover {
+    color: black;
+}
+.previous-page-link .heading{
+    margin-left: 42px;
+}
+section.notes {
+    margin: 0 45px;
+}
+section.notes.notes-edit {
+    margin-top: 20px;
+} 
+.flex-box-coloured > span.session-subject-name {
+    display: block;
+    position: absolute;
+    top:18px;
+    font-size: 18px;
+}
+.flex-box-coloured > span.session-subject-topic {
+    display: block;
+    position: absolute;
+    top: 48px;
+    font-size: 16px;
+    white-space: nowrap; 
+    width: 70%; 
+    opacity: 0.8;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.flex-box-coloured > span.session-timing {
+    display: block;
+    position: absolute;
+    top: 74px;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+.flex-box-coloured > span.session-timing > .session-date {
+    font-size: 14px;
+}
+.flex-box-coloured.double-width {
+    flex: 0 0 42%;
+    cursor: default;
+}
+.flex-box-coloured.double-width:hover {
+    transform: translateY(0);
+}
+.flex-box-coloured > span.session-subject-topic.double-width {
+    top: 30px;
+    font-size: 18px;
+}
+.flex-box-coloured > span.session-timing.double-width {
+    top: 62px;
+    font-size: 30px;
+    letter-spacing: 0px;
+}
+.flex-box-coloured > span.session-timing > .session-date.double-width {
+    font-weight: 400;
+    font-size: 16px;
+}
+iframe {
+    position: absolute; 
+    top: 30px; 
+    right: 0; 
+    bottom: 0;
+    left: 0;
+}
+#create-assignment-model {
+    display : none;
+    background-color: #f0fff1;
+}
+.md-ui.component-data-table .main-table-wrapper .main-table-content tr td.datatype-string .pure-material-textfield-outlined {
+    margin-left: -8px;
+    width: 360px;
+}
+.md-ui.component-data-table .main-table-wrapper .main-table-content tr td.datatype-numeric .pure-material-textfield-outlined {
+    width: 220px;  
+}
+.btn-svg > svg{
+    margin: 6px 6px 0px;
+    width: 20px;
+    height: 20px;
+    color: #4d708d;
+}
+#video-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+video {
+    height: 200px;
+    width: 310px;
+    margin: 10px;
+    border:2px solid black;
+    object-fit: cover;
+}
+.video-controls {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height:70px;
+    background:white;
+    border-top: 2px solid blue;
+}

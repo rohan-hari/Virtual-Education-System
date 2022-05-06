@@ -1,0 +1,40 @@
+<div class="md-ui component-data-table">
+	<div class="main-table-wrapper">
+		<table class="main-table-content">
+			<thead class="data-table-header">
+				<tr class="data-table-row">
+					<td class="table-datacell datatype-string">Topic</td>
+					<td class="table-datacell datatype-numeric">Subject</td>
+					<td class="table-datacell datatype-numeric ">Submission Date</td>
+					<td class="table-datacell datatype-numeric">Upload</td>
+				</tr>
+			</thead>
+			<tbody class="data-table-content">
+			<% if(assignments.length > 0){ %> 
+				<% assignments.forEach(assignment => {%> 
+				<tr class="data-table-row" style="cursor: default;">
+					<td class="table-datacell datatype-string"><%= assignment.assignmentTopic %></td>
+					<td class="table-datacell datatype-numeric"><%= assignment.subject %></td>
+					<td class="table-datacell datatype-numeric ">
+                        <%= assignment.submitDate.toLocaleDateString('en-US',{day: 'numeric',month:'short'}) %> 
+                        (<%= assignment.submitDate.toLocaleTimeString('en-US',{hour: '2-digit', minute:'2-digit'}) %>)</td>
+					<td class="table-datacell datatype-numeric">
+						<button class="pure-material-button-outlined upl" style="cursor: pointer;" onclick="window.location.href='/student/assignment/<%= assignment.id %>'">
+							e
+						</button>
+					</td>
+				</tr>
+			<% }) %> 
+             <% } else {%> 
+                <tr class="data-table-row">
+                    <td class="table-datacell datatype-string">No assignments pending</td>
+                    <td class="table-datacell datatype-numeric"></td>
+                    <td class="table-datacell datatype-numeric"></td>
+                    <td class="table-datacell datatype-numeric">
+                    </td>
+                </tr>
+            <% } %> 
+			</tbody>
+		</table>
+	</div>
+</div>

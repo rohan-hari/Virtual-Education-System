@@ -1,0 +1,33 @@
+<div class="previous-page-link">
+    <a href="/teacher">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+    <span class="heading">Edit Note</span>
+</div>
+<section class="notes notes-edit">
+      <form action="/teacher/notes/edit/<%= note.id %>?_method=PUT" method="POST">
+          <span class="label-heading">Topic</span>
+          <label class="pure-material-textfield-outlined outline-2">
+              <input type="text" name="title" value="<%= note.title %>" required />
+              <span></span>
+          </label>
+          <span class="label-heading">Description</span>
+          <label class="pure-material-textfield-outlined outline-2">
+              <input type="text" name="description" value="<%= note.description %>" />
+              <span></span>
+          </label>
+          <span class="label-heading">Content</span>
+          <label class="pure-material-textfield-outlined outline-2">
+              <textarea name="content" style="height: 430px; resize:none" required><%= note.content %></textarea>
+              <span></span>
+          </label>
+          <button class="btn btn-outline btn-primary btn-action" type="submit" style="margin-right: 6px;">Save</button>
+          <button class="btn btn-outline btn-danger btn-action" type="submit"
+            formaction="/teacher/notes/edit/<%= note.id %>?_method=DELETE" formmethod="POST">Delete
+          </button>
+      </form>
+    </form>
+    
+</section>

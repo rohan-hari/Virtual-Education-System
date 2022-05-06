@@ -1,0 +1,15 @@
+<ul class="flex-box-container">
+    <% classes.forEach(session => {%> 
+      <li class="flex-box-coloured double-width" >
+          <span class="session-subject-topic double-width"><%= session.topic %></span>
+          <span class="session-timing double-width"><%= session.tfrom %> - <%= session.tto %>
+              <span class="session-date double-width">(<%= session.date.toLocaleDateString('en-US',{month: 'short', day: 'numeric', weekday:'short'}) %>)</span>
+          </span>
+          <div class="flex-box-actions">
+              <button class="" onclick="window.location.href='/room/<%= session.id %>'">Join</button>
+              <button class="">Edit</button>
+              <button class="">Delete</button>
+          </div>
+      </li>
+    <% }) %> 
+</ul>

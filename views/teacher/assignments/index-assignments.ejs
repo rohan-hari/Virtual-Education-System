@@ -1,0 +1,66 @@
+<div class="md-ui component-data-table">
+    <div class="main-table-wrapper">
+      <table class="main-table-content">
+        <thead class="data-table-header">
+          <tr class="data-table-row">
+            <td class="table-datacell datatype-string">Topic</td>
+            <td class="table-datacell datatype-numeric">Submission Date</td>
+            <td class="table-datacell datatype-numeric" style="padding-right: 75px;">Actions</td>
+          </tr>
+        </thead>
+        <tbody class="data-table-content">
+          <!-- Create Assignment --------------------------------------------------->
+        <form action="/teacher/assignment" method="POST">
+          <tr class="data-table-row" id="create-assignment-model">
+            <td class="table-datacell datatype-string">
+                <label class="pure-material-textfield-outlined">
+                  <input placeholder=" " type="text" name="assignmentTopic" value="<%= assignments.assignmentTopic %>" required/>
+                  <span>Enter Topic</span>
+                 </label>
+            </td>
+            <td class="table-datacell datatype-numeric">
+                <label class="pure-material-textfield-outlined">
+                  <input placeholder="" type="datetime-local" name="submitDate" value="<%= assignments.submitDate %>" required/>
+                  <span>Enter Submission Date</span>
+              </label>
+            </td>
+              <td class="table-datacell datatype-numeric">
+                  <button class="btn btn-primary btn-action" type="submit">Save</button>
+                  <button class="btn btn-primary btn-danger btn-action" type="button" onClick="window.location.reload(true)">Cancel</button>
+              </td>
+           </tr>
+        </form>
+        <!--------------------------------------------------------------------------->
+           <% assignments.forEach(assignment => { %>
+            <tr class="data-table-row">
+                <td class="table-datacell datatype-string"><%= assignment.assignmentTopic %></td>
+                <td class="table-datacell datatype-numeric">
+                    <%= assignment.submitDate.toLocaleDateString('en-US',{day: 'numeric', month:'short'}) %> 
+                   (<%= assignment.submitDate.toLocaleTimeString('en-US',{hour: '2-digit', minute:'2-digit'}) %>)
+                </td>
+                <form action="/teacher/assignment/<%= assignment.id %>?_method=DELETE" method="POST">
+                <td class="table-datacell datatype-numeric">
+                    <button class="btn btn-primary btn-action" type="button" onclick="window.location.href='/teacher/assignment/<%= assignment.id %>'" >View</button>
+                    <button class="btn btn-primary btn-danger btn-action">Delete</button>
+                </td>
+                </form>
+            </tr>
+            <% }) %>
+            <tr class="data-table-row-last">
+                <td class="table-datacell datatype-string">
+                <button class="btn btn-primary btn-action" onclick="window.location.href='/teacher/assignment'" style="margin-left: -16px;">
+                    View Previous Assignments
+                </button>
+                </td>
+                <td class="table-datacell datatype-numeric"></td>
+                <td class="table-datacell datatype-numeric" style="padding-right: 45px;">
+                <button class="btn btn-primary btn-action" type="button" onclick="createAssignment()">
+                    Create New
+                </button>
+            </td>
+           </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+

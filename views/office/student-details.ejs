@@ -1,0 +1,37 @@
+<div class="previous-page-link">
+    <a href="/office">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+    <span class="heading">Student Details</span>
+</div>
+
+<div class="md-ui component-data-table">
+  <div class="main-table-wrapper">
+    <table class="main-table-content">
+      <thead class="data-table-header">
+        <tr class="data-table-row">
+          <td class="table-datacell datatype-string">Name</td>
+          <td class="table-datacell datatype-numeric" style="text-align: center;">Course</td>
+          <td class="table-datacell datatype-numeric">Actions</td>
+        </tr>
+      </thead>
+      <tbody class="data-table-content">
+      <% students.forEach(student => { %>
+        <tr class="data-table-row">
+          <td class="table-datacell datatype-string"><%= student.name %></td>
+          <td class="table-datacell datatype-numeric" style="text-align: center;">
+            <%= student.course %>
+          </td>
+          <td class="table-datacell datatype-numeric">
+            <button class="btn btn-primary btn-action">
+              View
+            </button>
+          </td>
+        </tr>
+        <% }) %>
+       </tbody>
+     </table>
+   </div>
+</div>

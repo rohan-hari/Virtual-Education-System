@@ -1,4 +1,5 @@
-// Random Colored Box -------------------------------------------------
+/* Random Colored Box */
+
 $(document).ready(function(){
     let colors = ["pink", "green", "blue", "orange", "purple"];
     $(".flex-box-coloured").each(function(){
@@ -9,11 +10,14 @@ $(document).ready(function(){
    });
 });
 
-// Create Modal----------------------------------------------------------
+/* Assignment */
 
 function createAssignment(){
     document.getElementById('create-assignment-model').style.display = "table-row";
 }
-function addNotification(){
+
+/* Notification */
+
+function addNotification() {
     document.getElementById('add-notification-model').style.display = "block";
 }

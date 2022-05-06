@@ -8,24 +8,19 @@
       </a>
       <div id="add-notification-model">
         <form>
-          <label class="pure-material-textfield-outlined">
-              <input placeholder=" " name="message" required>
-              <span>Add your message here</span>
-          </label>
-            <label for="role" class="pure-material-select-outlined">
-              <select type="select" name="role" id="role" required >
-                  <option value="" disabled >Select your role</option>
-                  <option value="teacher">Teacher</option>
-                  <option value="student">Student</option>
-                  <option value="" disabled>Select your role</option>
-            `     <option value="teacher">Teacher</option>
-                  <option value="student">Student</option>
+            <label class="pure-material-textfield-outlined">
+                <input placeholder=" " name="message" required>
+                <span>Add your message here</span>
+            </label>
+            <label class="pure-material-select-outlined outline-2">
+               <select type="select" name="role" required>
+                  <option value="" disabled selected>Select your role</option>
                </select>
-              <span>Role</span>
-          </label>
-          <button class="btn btn-outline btn-danger btn-action" type="button" 
-                  onClick="window.location.reload(true)">Cancel</button>
-          <button class="btn btn-outline btn-primary btn-action" type="submit" >Send</button>
+               <span></span>
+            </label>
+            <button class="btn btn-outline btn-danger btn-action" type="button" 
+                    onClick="window.location.reload(true)">Cancel</button>
+            <button class="btn btn-outline btn-primary btn-action" type="submit" >Send</button>
         </form>
       </div>
     </span>

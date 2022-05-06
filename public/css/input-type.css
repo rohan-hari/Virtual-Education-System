@@ -57,11 +57,7 @@
     line-height: 1.5;
     overflow: hidden;
 }
-.pure-material-textfield-outlined.outline-2 {
-    display: block;
-    margin-bottom: 14px;
-    border-top-color: lightgray;
-}
+
 .pure-material-textfield-outlined > input,
 .pure-material-textfield-outlined > textarea{
     box-sizing: border-box;
@@ -124,10 +120,6 @@
     margin-right: 4px;
     border-left: solid 1px transparent;
     border-radius: 4px 0;
-}
-.pure-material-textfield-outlined.outline-2 > input + span::before,
-.pure-material-textfield-outlined.outline-2 > textarea + span::before {
-    margin-right: -4px;
 }
 .pure-material-textfield-outlined > input + span::after,
 .pure-material-textfield-outlined > textarea + span::after {
@@ -319,3 +311,28 @@
     border-top-color:#3b90d6!important;
     box-shadow: inset 0 1px #1769aa;
 }
+
+/* Outline 2 */
+
+.outline-2 {
+    display: block;
+    margin-bottom: 14px;
+    border-top-color: lightgray;
+}
+.outline-2 > input + span::before,
+.outline-2 > textarea + span::before {
+    margin-right: -4px;
+}
+.outline-2 >  select {
+    border-top-color: lightgray;
+}
+.outline-2 > select:hover,
+.outline-2 > select:focus {
+    border-top-color: #338ad1;
+}
+.outline-2 >  select + span::before,
+.outline-2 > select + span::after {
+    margin-left: 0;
+    margin-right: 0;
+}
+

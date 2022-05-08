@@ -18,10 +18,6 @@ const classSchema = new mongoose.Schema({
 	tfrom: {
 	},
 	tto: {
-	},
-	classlink: {
-		type: String,
-		required: true
 	}
 })
 

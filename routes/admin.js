@@ -20,10 +20,8 @@ router.post('/', async(req,res) => {
       const newCourse = await course.save()
       res.redirect(`admin`)
     } catch {
-        res.redirect('admin'),{
-        course:course,
-        errorMessage: 'Error Creating Course'
-    }}
+        res.redirect('/error'),{
+       }}
 })
 
 //Course Page ------------------------------------------------------------
@@ -32,9 +30,9 @@ router.get('/:course', async(req,res) =>{
     const user = req.user
     const course = req.params.course
     const classes = await Class.find({"course":course}) 
-    const teachers = await User.find({"course":course,"role":"teacher"})
+    const faculties = await User.find({"course":course,"role":"teacher"})
     const students = await User.find({"course":course,"role":"student"})
-    res.render("admin/[courses]",{course:course,classes:classes,teachers:teachers,students:students,user:user})
+    res.render("admin/[course]", { course, classes, faculties , students, user })
 })
 
 router.get('/edit/:id',async(req,res) =>{
@@ -64,8 +62,8 @@ router.put('/:course/:id', async(req,res) => {
       user = await user.save()
       res.redirect(`/admin/${course}`)
   }
-  catch(e){
-      res.redirect(`/admin/${course}`)
+    catch {
+      res.redirect(`/error`)
 }
 })
 

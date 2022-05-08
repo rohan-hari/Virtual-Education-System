@@ -1,6 +1,7 @@
 const express = require('express')
 const Class = require('../models/classes')
 const Note = require('../models/note')
+const Notification = require('../models/notification')
 const Assignment = require('../models/assignment')
 const AssignmentUpl = require('../models/assignmentUpl')
 
@@ -9,6 +10,9 @@ const router = express.Router()
 router.get('/', async (req, res) => {
 	const user = req.user
 	const classes = await Class.find({ "course": req.user.course })
+	const notifications = await Notification.find({ 
+		"reciever": { $ne: "teacher" } 
+	}).sort({ createdAt : -1 })
 	const notes = await Note.find({ "course": req.user.course }).distinct("subject")
 	const assignments = await Assignment.find({ "course": req.user.course, "submitDate": { $gt: new Date() }}).sort({ "submitDate": 1 })
 	res.render("student/index", {
@@ -16,6 +20,8 @@ router.get('/', async (req, res) => {
 		notes: notes,
 		assignments: assignments,
 		user: user,
+		notifications,
+		show_notification: 'yes'
 	})
 })
 

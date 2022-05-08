@@ -1,6 +1,7 @@
 const express = require('express')
 const Note = require('../models/note')
 const Class = require('../models/classes')
+const Notification = require('../models/notification')
 const Assignment = require('../models/assignment')
 const AssignmentUpl = require('../models/assignmentUpl')
 
@@ -8,6 +9,9 @@ const router = express.Router()
 
 router.get('/', async (req, res) => {
 	const user = req.user
+	const notifications = await Notification.find({ 
+		"reciever": { $ne: "student" } 
+	}).sort({ createdAt : -1 })
 	const notes = await Note.find({
 		"subject": req.user.subjectName,
 		"course": req.user.course
@@ -25,7 +29,9 @@ router.get('/', async (req, res) => {
 		classes: classes,
 		notes: notes,
 		assignments: assignments,
-		user: user
+		user: user,
+		notifications,
+		show_notification: 'yes'
 	})
 })
 
@@ -63,12 +69,11 @@ function saveClassAndRedirect(path) {
 	return async (req, res) => {
 		let classes = req.classes
 		classes.topic = req.body.topic
-		classes.subject = req.body.subject
+		classes.subject = req.user.subjectName
 		classes.course = req.user.course
 		classes.date = req.body.date
 		classes.tfrom = req.body.tfrom
 		classes.tto = req.body.tto
-		classes.classlink = req.body.classlink
 		try {
 			classes = await classes.save()
 			res.redirect('/teacher')

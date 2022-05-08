@@ -21,22 +21,27 @@ function createAssignment(){
 function addNotification() {
     document.getElementById('add-notification-model').style.display = "block";
 }
-
-// Multi Select Dropdown
-
-var checkList = document.getElementById('category');
-var items = document.getElementById('items');
-checkList.getElementsByTagName('span')[0].onclick = function(evt) {
-  if (items.classList.contains('visible')) {
-    items.classList.remove('visible');
-    items.style.display = "none";
+function notificationPanel() {
+  var panel = document.getElementById('notification-panel')
+  if (panel.classList.contains('visible')) {
+    panel.classList.remove('visible');
+    panel.style.display = "none";
   } else {
-    items.classList.add('visible');
-    items.style.display = "block";
+    panel.classList.add('visible');
+    panel.style.display = "block";
   }
-
 }
 
-items.onblur = function(evt) {
-  items.classList.remove('visible');
+/* Course Modal */
+
+function addCourse() {
+  document.getElementById('add-course-model').style.display = "block";
+  document.getElementById('add-course-btn').style.display = "none";
+}
+
+
+// Class Model
+
+function addClass() {
+  document.getElementById('create-class-model').style.display = "block";
 }

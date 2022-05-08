@@ -8,6 +8,7 @@ body, html {
     background-color:#e7ecef;
 }
 a {
+    cursor: pointer;
     text-decoration: none;
 }
 h1 {
@@ -75,8 +76,40 @@ h1 {
     padding:10px 17px;
     font-size: 17px;
     font-weight: 500;
+    user-select: none;
 }
-
+.notification-panel {
+    position: fixed;
+    top: 60px;
+    right: 90px;
+    width: 400px;
+    height: 280px;
+    overflow-y: scroll;
+     background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    box-shadow: 0px 3px 7px 0 #b1b1b1;
+    z-index: 10;
+    display: none;
+  }
+.notification-panel::-webkit-scrollbar {
+    display: none;
+}
+.notification-list {
+    margin-top: 0;
+    padding: 4px;
+}
+.notification-item {
+    list-style:none;
+    border-bottom: 1px solid #ccc;
+    padding: 12px 15px;
+    min-height: 25px;
+    font-family: system-ui;
+}
+.notification-item:last-child{
+    border-bottom: 0px;
+    padding: 12px 15px 0px;
+}
 /* Homepage ----------------------------------------------- */
 
 .container > img{
@@ -163,7 +196,7 @@ h1 {
     color: black;
 }
 
-/* Office Page ---------------------------------------------------------*/
+/* Office & Admin ---------------------------------------------------------*/
 
 .heading {
     font-size: 36px;
@@ -183,6 +216,9 @@ h1 {
 #add-notification-model {
     display: none;
 }
+#add-course-model {
+    display: none;
+}
 #add-notification-model > form {
     display: flex;
     align-items: center;
@@ -191,58 +227,14 @@ h1 {
     width: 530px;
     margin: 15px 10px 5px 48px;
 }
+#add-notification-model > form > label.pure-material-select-outlined {
+    width: 270px;
+    margin: 15px 20px 5px 20px;
+}
 #add-notification-model > form > button {
     margin: 10px 10px 0 0;
 }
 
-/* Multi-Select Dropdown */
-
-#category {
-    display: inline-block;
-    margin: 0 18px 0 10px;
-}
-#category span {
-    position: relative;
-    cursor: pointer;
-    padding: 15px 140px 15px 10px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 16px;
-    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-}
-#category span:hover {
-    border: 1px solid #3b90d6;
-    transition: border 0.2s, box-shadow 0.2s;
-}
-#category span:after {
-    position: absolute;
-    content: "";
-    border-left: 2px solid rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-    border-top: 2px solid rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-    padding: 4px;
-    right: 15px;
-    top: 35%;
-    transform: rotate(-135deg);
-}
-#category ul.items {
-    display: none;
-    position: absolute;
-    padding: 7px;
-    margin: 0;
-    width: 285px;
-    border: 1px solid #ccc;
-    background-color: white;
-    font-weight: 500;
-    font-size: 16px;
-    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-}
-#category ul.items li {
-    list-style: none;
-}
-#category ul.items li input {
-    margin-right: 12px;
-}
 
 /* Student & Teacher Page -------------------------------------------------------- */
 
@@ -360,4 +352,32 @@ video {
     height:70px;
     background:white;
     border-top: 2px solid blue;
+}
+#create-class-model{
+    display: none;
+}
+.textfield-latest {
+    box-sizing: border-box;
+    margin: 0;
+    border: solid 1px #afafaf;
+    border-radius: 4px;
+    padding: 0px 8px;
+    width: 100%;
+    font: inherit;
+    font-size: 14px;
+    height: 30px;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+input.textfield-latest[type="time"]{
+    width: 23%;
+}
+input.textfield-latest[type="date"]{
+    width: 34%;
+}
+.textfield-latest:hover {
+    border: 1px solid #338ad1;
+}
+.textfield-latest:focus {
+    outline: none !important;
+    border: 1px solid #2376ba;
 }

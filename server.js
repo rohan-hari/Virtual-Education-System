@@ -52,6 +52,8 @@ app.use(function(req, res, next) {
 app.get('/', (req,res) => { 
     res.render('index', {layout: 'layout/no-page-wrap' }) 
 })
+
+
 app.use('/admin',ensureAuthenticated,authRole('admin'), adminRouter)
 app.use('/office', officeRouter)
 app.use('/teacher',ensureAuthenticated,authRole('teacher'),authApproval, teacherRouter)
@@ -68,16 +70,16 @@ app.get('/room/:id',ensureAuthenticated, (req, res) => {
     })
 })
 
-socket.on('connection', socket => {
-    socket.on("chat message", function(msg) {
-        console.log("message: " + msg);
-        socket.emit("received", { message: msg });
-    })
-    // socket.on('join-room', (roomId, userId) => {
-    //   socket.join(roomId)
-    //   socket.to(roomId).emit('user-connected', userId, roomId)
-    //   })
-})
+// socket.on('connection', socket => {
+//     socket.on("chat message", function(msg) {
+//         console.log("message: " + msg);
+//         socket.emit("received", { message: msg });
+//     })
+//     // socket.on('join-room', (roomId, userId) => {
+//     //   socket.join(roomId)
+//     //   socket.to(roomId).emit('user-connected', userId, roomId)
+//     //   })
+// })
 
 server.listen(3000, () => {
     console.log('Connected to port: 3000')

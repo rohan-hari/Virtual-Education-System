@@ -9,19 +9,17 @@
       <div id="add-notification-model">
         <form action="/office/notification" method="POST">
             <label class="pure-material-textfield-outlined">
-                <input placeholder=" " name="message" value="<%= notification.message %>" required>
+                <input placeholder=" " name="message" required>
                 <span>Add your message here</span>
             </label>
-            <div id="category">
-              <span>Send messages to</span>
-              <ul id="items" class="items">
-                  <li><label><input type="checkbox" />Apple </label></li>
-                  <li><label><input type="checkbox" />Apple </label</li>
-                  <li><label><input type="checkbox" />Apple </label</li>
-                  <li><label><input type="checkbox" />Apple </label</li>
-                  <li><label><input type="checkbox" />Apple </label</li>
-              </ul>
-          </div>
+            <label for="reciever" class="pure-material-select-outlined">
+              <select type="select" name="reciever" id="reciever" required >
+                  <option value="all">Everyone</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="student">Student</option>
+              </select>
+              <span>Send message to</span>
+          </label>
             <button class="btn btn-outline btn-danger btn-action" type="button" 
                     onClick="window.location.reload(true)">Cancel</button>
             <button class="btn btn-outline btn-primary btn-action" type="submit" >Send</button>

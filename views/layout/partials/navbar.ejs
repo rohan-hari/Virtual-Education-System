@@ -10,5 +10,10 @@
     <a class="logo">Virtual Education System</a>
     <a class="nav-link btn btn-primary" href="/user/logout">Logout</a>
     <a class="nav-link btn btn-primary" href="#"><%= user.name %></a>
+    <% if (typeof show_notification != 'undefined') { %>
+        <a class="nav-link btn btn-primary" onclick="notificationPanel()" > Notification </a>
+        <%- include('./notification-panel') %> 
+    <% }  %> 
 </div>
+
 <% } %> 

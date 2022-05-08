@@ -5,11 +5,35 @@
           <span class="session-timing double-width"><%= session.tfrom %> - <%= session.tto %>
               <span class="session-date double-width">(<%= session.date.toLocaleDateString('en-US',{month: 'short', day: 'numeric', weekday:'short'}) %>)</span>
           </span>
+
           <div class="flex-box-actions">
-              <button class="" onclick="window.location.href='/room/<%= session.id %>'">Join</button>
-              <button class="">Edit</button>
-              <button class="">Delete</button>
+            <form>
+              <button onclick="window.location.href='/room/<%= session.id %>'" type="button">Join</button>
+              <button formaction="/teacher/<%= session.id %>?_method=DELETE" formmethod="POST">Delete</button>
+            </form>
           </div>
       </li>
     <% }) %> 
+   
+      <form class="flex-box-coloured white double-width" id="create-class-model" 
+            action="/teacher" method="POST">
+        <span class="session-subject-topic double-width">
+            <input placeholder="Topic" class="textfield-latest" type="text" name="topic" required/>
+        </span>
+        <span class="session-timing double-width">
+            <input class="textfield-latest" type="time" name="tfrom" value="08:30" step="900" required>
+            <input class="textfield-latest" type="time" name="tto" value="09:30" step="900" required>
+            <span class="session-date double-width">
+            <input class="textfield-latest" type="date" name="date" required>
+            </span>
+        </span>
+        <div class="flex-box-actions">
+            <button class="" type="button" onClick="window.location.reload(true)">Cancel</button>
+            <button class="" type="submit">Save</button>
+        </div>
+      </form>
+    <button class="btn btn-outline btn-primary btn-action" type="button" 
+            style="margin: 25px 0 0 20px; height: 40px;" onclick="addClass()">
+        Create
+    </button>
 </ul>

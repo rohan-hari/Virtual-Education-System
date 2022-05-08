@@ -33,10 +33,10 @@ ul.card-container > li.card-content span.card-title.card-title-small {
 }
 ul.card-container > li.card-content > .card-actions {
     position: absolute;
-    width: 150px;
+    width: 70px;
     margin: -20px 0px;
     border-top: 1px solid #ccc;
-    padding: 12px 0 0 100px;
+    padding: 12px 0 0 180px;
 }
 ul.card-container > li.card-content > .card-actions svg {
     color: #537794;
@@ -82,6 +82,10 @@ ul.card-container > li.card-content > .card-actions svg:hover {
 }
 .flex-box-coloured.purple {
     background: linear-gradient(to left,#aa7af8,#8845f5)
+}
+.flex-box-coloured.white {
+    background: rgb(255, 255, 255);
+    color: #005aeb;
 }
 .flex-box-coloured > .flex-box-title {
     font-size: 32px;

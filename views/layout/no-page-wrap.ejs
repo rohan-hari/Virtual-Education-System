@@ -7,11 +7,16 @@
     <link href="/public/css/input-type.css" rel="stylesheet">
     <link href="/public/css/style.css" rel="stylesheet">
     <link rel="shortcut icon" href="#" />
-    <title><%= (typeof title != "undefined" ? `${title} - ` : "") %>Virtual Education System</title>
+    <title><%= (typeof title != "undefined" ? `${title} - ` : "") %> Virtual Education System</title>
     <%- script %>
 </head>
 <body>
-    <%- include('./partials/navbar')  %> 
+    <div class="navbar">
+        <a class="logo">Virtual Education System</a>
+        <a class="nav-link btn btn-primary" href="/user/register">Register</a>
+        <a class="nav-link btn btn-primary" href="/user/login">Login</a>
+        <a class="nav-link btn btn-primary" href="/">Home</a>
+    </div>
     <%- body -%>
     
  </body>

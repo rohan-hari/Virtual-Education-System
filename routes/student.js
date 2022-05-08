@@ -1,4 +1,5 @@
 const express = require('express')
+const User = require('../models/registeredUsers')
 const Class = require('../models/classes')
 const Note = require('../models/note')
 const Notification = require('../models/notification')
@@ -16,10 +17,10 @@ router.get('/', async (req, res) => {
 	const notes = await Note.find({ "course": req.user.course }).distinct("subject")
 	const assignments = await Assignment.find({ "course": req.user.course, "submitDate": { $gt: new Date() }}).sort({ "submitDate": 1 })
 	res.render("student/index", {
-		classes: classes,
-		notes: notes,
-		assignments: assignments,
-		user: user,
+		classes,
+		notes,
+		assignments,
+		user,
 		notifications,
 		show_notification: 'yes'
 	})
@@ -90,5 +91,44 @@ router.get('/notes/:subject/:id', async (req, res) => {
 	}
 })
 
+// Fees -------------------------------------------
+
+router.get('/sem-fees/:id', async(req, res) => {
+	const user = req.user
+	res.render('student/sem-fees',{
+		user
+	})
+})
+router.get('/other-fees/:id', async(req, res) => {
+	const user = req.user
+	res.render('student/other-fees',{
+		user
+	})
+})
+
+router.put('/sem-fees/:id', async(req,res) => {
+    req.user = await User.findById(req.params.id)
+    let user = req.user
+    user.semFeesPaid = "yes"
+    try {
+      user = await user.save()
+      res.redirect(`/student/sem-fees/${req.params.id}`)
+  }
+    catch {
+      res.redirect(`/error`)
+}
+})
+router.put('/other-fees/:id', async(req,res) => {
+    req.user = await User.findById(req.params.id)
+    let user = req.user
+    user.otherFeesPaid = "yes"
+    try {
+      user = await user.save()
+      res.redirect(`/student/other-fees/${req.params.id}`)
+  }
+    catch {
+      res.redirect(`/error`)
+}
+})
 
 module.exports = router

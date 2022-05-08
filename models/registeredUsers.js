@@ -25,6 +25,12 @@ const userSchema = new mongoose.Schema({
     subjectName:{
         type:String
     },
+    semFeesPaid:{
+        type:String
+    },
+    otherFeesPaid:{
+        type:String
+    },
     isApproved:{
         type:String,
         required:true,

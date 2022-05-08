@@ -9,6 +9,11 @@ const notificationSchema = new mongoose.Schema({
         type: String,
         required:true
     },
+    feesType:{
+        type: String,
+     },
+    userId:{
+    }
 }, { timestamps: true })
 
 module.exports = mongoose.model('notification', notificationSchema)

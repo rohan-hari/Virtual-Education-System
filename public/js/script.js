@@ -44,6 +44,7 @@ function addCourse() {
 
 function addClass() {
   document.getElementById('create-class-model').style.display = "block";
+  document.getElementById('create-class-btn').style.display = "none";
 }
 
 //Numbers Only

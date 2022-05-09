@@ -7,8 +7,9 @@
             <td class="table-datacell datatype-numeric" style="padding-right: 60px;">Actions</td>
           </tr>
         </thead>
-        <% if(notes.length > 0){ %> <% notes.forEach(note => { %>
-        <tbody class="data-table-content">
+       <tbody class="data-table-content">
+        <% if(notes.length > 0){ %> 
+          <% notes.forEach(note => { %>
           <tr class="data-table-row">
             <td class="table-datacell datatype-string"><%= note.title %></td>
             <td class="table-datacell datatype-numeric">
@@ -16,12 +17,14 @@
               <button class="btn btn-primary btn-action" onclick="window.location.href='/teacher/notes/edit/<%= note.id %>'">Edit</button>
             </td>
           </tr>
-       <% }) %> <% } else {%>
-          <tr class="data-table-row">
-            <td class="table-datacell datatype-string">No notes added</td>
-            <td class="table-datacell datatype-numeric"></td>
-          </tr>
-        <% } %>
+       <% }) %> 
+       <% } else {%> 
+        <tr class="data-table-row">
+          <td class="table-datacell datatype-string">No Notes Uploaded</td>
+          <td class="table-datacell datatype-numeric">
+          </td>
+        </tr>
+    <% } %> 
         <tr class="data-table-row-last">
           <td class="table-datacell datatype-string"></td>
           <td class="table-datacell datatype-numeric">

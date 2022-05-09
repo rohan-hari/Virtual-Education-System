@@ -18,18 +18,21 @@
         </tr>
       </thead>
       <tbody class="data-table-content">
+        
       <% students.forEach(student => { %>
+        <% if(student.isApproved == "yes"){ %>
         <tr class="data-table-row">
           <td class="table-datacell datatype-string"><%= student.name %></td>
           <td class="table-datacell datatype-numeric" style="text-align: center;">
             <%= student.course %>
           </td>
           <td class="table-datacell datatype-numeric">
-            <button class="btn btn-primary btn-action">
+            <button class="btn btn-primary btn-action" onclick="window.location.href='/user/details/<%= student.id %>'">
               View
             </button>
           </td>
         </tr>
+        <% } %> 
         <% }) %>
        </tbody>
      </table>

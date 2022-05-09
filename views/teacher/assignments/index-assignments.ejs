@@ -31,7 +31,8 @@
            </tr>
         </form>
         <!--------------------------------------------------------------------------->
-           <% assignments.forEach(assignment => { %>
+        <% if(assignments.length > 0) { %> 
+        <% assignments.forEach(assignment => { %>
             <tr class="data-table-row">
                 <td class="table-datacell datatype-string"><%= assignment.assignmentTopic %></td>
                 <td class="table-datacell datatype-numeric">
@@ -46,6 +47,13 @@
                 </form>
             </tr>
             <% }) %>
+         <% } else { %>
+          <tr class="data-table-row">
+            <td class="table-datacell datatype-string">No Active Assignments</td>
+            <td class="table-datacell datatype-numeric"></td>
+            <td class="table-datacell datatype-numeric"></td>
+          </tr>
+          <% } %>  
             <tr class="data-table-row-last">
                 <td class="table-datacell datatype-string">
                 <button class="btn btn-primary btn-action" onclick="window.location.href='/teacher/assignment'" style="margin-left: -16px;">

@@ -1,3 +1,4 @@
+<% if(notes.length > 0){ %> 
 <ul class="card-container">
 <% notes.forEach(subject => { %> 
     <li class="card-content">
@@ -7,3 +8,6 @@
     </li>
 <% }) %> 
 </ul>
+<% } else { %>
+  <p class="null-text">No Notes Uploaded</p>
+<% } %> 

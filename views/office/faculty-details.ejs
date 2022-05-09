@@ -23,7 +23,7 @@
             <td class="table-datacell datatype-string"><%= faculty.name %></td>
             <td class="table-datacell datatype-numeric" style="text-align: center;"><%= faculty.course %></td>
             <td class="table-datacell datatype-numeric">
-              <button class="btn btn-primary btn-action">
+              <button class="btn btn-primary btn-action" onclick="window.location.href='/user/details/<%= faculty.id %>'">
                 View
               </button>
             </td>

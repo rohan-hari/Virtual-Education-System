@@ -237,6 +237,10 @@ h1 {
 
 /* Student & Teacher Page -------------------------------------------------------- */
 
+.null-text{
+    font-size: 18px;
+    margin: 20px 0 0 40px;
+}
 span.label-heading {
     font-size: 18px;
     font-weight: 500;

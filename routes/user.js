@@ -5,7 +5,9 @@ const bcrypt = require('bcrypt')
 const passport = require('passport')
 
 const router = express.Router()
-const { forwardAuthenticated } = require('../config/auth');
+const { forwardAuthenticated, ensureAuthenticated, } = require('../config/auth');
+
+
 
 // Register ------------------------------------------------------------
 
@@ -75,6 +77,11 @@ router.get('/logout', (req, res) => {
   req.logout()
   req.flash('success_msg', 'You are logged out')
   res.redirect('/user/login')
+})
+
+router.get('/details/:id',ensureAuthenticated, async(req,res) => {
+  let users = await User.findById(req.params.id)
+	res.render("[user]", { users })
 })
 
 module.exports = router

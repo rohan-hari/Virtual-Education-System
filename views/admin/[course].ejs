@@ -25,6 +25,7 @@
                 <td class="table-datacell datatype-numeric" style="text-align: center;">Teacher</td>
                 <td class="table-datacell datatype-numeric">
                     <% if(faculty.isApproved == "no") { %>
+                        <form>
                         <button class="btn btn-primary btn-danger btn-action"
                         formaction="/admin/<%= faculty.course %>/<%= faculty.id %>?_method=DELETE" 
                         formmethod="POST">
@@ -35,8 +36,12 @@
                         formmethod="POST">
                             Approve
                        </button>
+                       </form>
                     <% } else { %>
-                    <button class="btn btn-primary btn-action" type="button">View</button>
+                    <button class="btn btn-primary btn-action" type="button" 
+                             onclick="window.location.href='/user/details/<%= faculty.id %>'">
+                     View
+                    </button>
                     <% } %>
                 </td>
             </tr>
@@ -55,12 +60,11 @@
                             </button>
                             <button class="btn btn-primary btn-action" type="submit" 
                              formaction="/admin/<%= student.course %>/<%= student.id %>?_method=PUT" 
-                             formmethod="POST">
-                                 Approve
-                            </button>
+                             formmethod="POST">Approve</button>
                             </form>
                             <% } else { %>
-                            <button class="btn btn-primary btn-action" type="button">View</button>
+                            <button class="btn btn-primary btn-action" type="button"
+                            onclick="window.location.href='/user/details/<%= student.id %>'">View</button>
                         <% } %>
                     </td>
                 </tr>

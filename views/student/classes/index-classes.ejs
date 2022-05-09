@@ -1,5 +1,6 @@
-<ul class="flex-box-container">
-    <% classes.forEach(session => {%> 
+<% if(classes.length > 0){ %> 
+    <ul class="flex-box-container">
+     <% classes.forEach(session => {%> 
       <li class="flex-box-coloured" onclick="window.location.href='/room/<%= session.id %>'">
           <span class="session-subject-name"><%= session.subject %></span>
           <span class="session-subject-topic"><%= session.topic %></span>
@@ -11,4 +12,7 @@
           </svg>
       </li>
     <% }) %> 
-</ul>
+    </ul>
+<% } else { %> <br>
+    <p class="null-text">No Upcoming classes</p>
+<% } %> 

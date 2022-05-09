@@ -55,7 +55,7 @@ app.get('/', (req,res) => {
 
 
 app.use('/admin',ensureAuthenticated,authRole('admin'), adminRouter)
-app.use('/office', officeRouter)
+app.use('/office',ensureAuthenticated,authRole('office'), officeRouter)
 app.use('/teacher',ensureAuthenticated,authRole('teacher'),authApproval, teacherRouter)
 app.use('/student', ensureAuthenticated,authRole('student'),authApproval, studentRouter)
 app.use('/user', userRouter)

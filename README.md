@@ -1,4 +1,4 @@
-# Virtual Education System with Node.js, MongoDB
+# Virtual Education System with Node.js,EJS and MongoDB
 It is an online learning environment that enables live contact between the teacher and the learners while they are engaged in learning activities.
 
 ## Features

@@ -70,16 +70,16 @@ app.get('/room/:id',ensureAuthenticated, (req, res) => {
     })
 })
 
-// socket.on('connection', socket => {
-//     socket.on("chat message", function(msg) {
-//         console.log("message: " + msg);
-//         socket.emit("received", { message: msg });
-//     })
-//     // socket.on('join-room', (roomId, userId) => {
-//     //   socket.join(roomId)
-//     //   socket.to(roomId).emit('user-connected', userId, roomId)
-//     //   })
-// })
+io.on('connection', socket => {
+    socket.on('join-room', (roomId, userId) => {
+      socket.join(roomId)
+      socket.to(roomId).broadcast.emit('user-connected', userId)
+  
+      socket.on('disconnect', () => {
+        socket.to(roomId).broadcast.emit('user-disconnected', userId)
+      })
+    })
+  })
 
 server.listen(3000, () => {
     console.log('Connected to port: 3000')

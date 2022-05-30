@@ -10,5 +10,6 @@ It is an online learning environment that enables live contact between the teach
 To see it live:
 
 - Clone the repository.
+- Run : npm install
 - Start server: npm run dev.
 - In your web browser, navigate to : localhost:3000.

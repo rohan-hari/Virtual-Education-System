@@ -1,0 +1,53 @@
+<link href="/public/js/filepond/filepond.css" rel="stylesheet" />
+
+<div class="previous-page-link">
+    <a href="/student">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+    <span class="heading">Upload Assignment</span>
+</div>
+<div style="margin:30px 45px ;">
+<form action="/student/assignment/<%= assignments.id %>" method="POST">
+    <span class="label-heading">Topic</span>
+    <label class="pure-material-textfield-outlined outline-2">
+      <input placeholder=" " type="text" name="assignmentTopic" value="<%= assignments.assignmentTopic %>" readonly required />
+      <span></span>
+    </label>
+    <span class="label-heading">Subject</span>
+    <label class="pure-material-textfield-outlined outline-2">
+      <input  placeholder=" " type="text" name="subject" value="<%= assignments.subject %>" readonly required />
+      <span></span>
+    </label>
+    <% if(assignmentUpl.length != 0){ %>
+        <label class="pure-material-textfield-outlined outline-2">
+            You Have Already Uploaded
+        </label>
+        <button class="btn btn-outline btn-primary btn-action" onclick="window.location.href='/student'" type="button" >
+            Back
+        </button>
+    <% } else { %>
+        <span class="label-heading">Upload file</span>
+        <label class="pure-material-textfield-outlined outline-2">
+            <input type="file" class="filepond" name="pdfUpload" data-max-file-size="5MB" accept="application/pdf" required />
+        </label>
+        <button class="btn btn-outline btn-danger btn-action" onclick="window.location.href='/student'" type="button">Cancel</button>
+        <button class="btn btn-outline btn-primary btn-action" type="submit" style="margin-left: 8px;">Upload</button>
+    <% } %>
+  </form>
+  </div>
+
+<!-- FilePond ( File Upload ) Scripts -->
+<script src="/public/js/filepond/filepond-plugin-file-encode.js"></script>
+<script src="/public/js/filepond/filepond-plugin-file-validate-size.js"></script>
+<script src="/public/js/filepond/filepond-plugin-file-validate-type.js"></script>
+<script src="/public/js/filepond/filepond.js"></script>
+<script>
+  FilePond.registerPlugin(
+    FilePondPluginFileEncode,
+    FilePondPluginFileValidateSize,
+    FilePondPluginFileValidateType
+    )
+FilePond.parse(document.body);
+</script>

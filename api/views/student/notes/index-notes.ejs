@@ -1,0 +1,13 @@
+<% if(notes.length > 0){ %> 
+<ul class="card-container">
+<% notes.forEach(subject => { %> 
+    <li class="card-content">
+      <a href="/student/notes/<%= subject %>">
+        <span class="card-title card-title-small"><%= subject %></span>
+      </a>
+    </li>
+<% }) %> 
+</ul>
+<% } else { %>
+  <p class="null-text">No Notes Uploaded</p>
+<% } %> 

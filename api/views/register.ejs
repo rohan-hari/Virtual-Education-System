@@ -1,0 +1,45 @@
+<div class="form-align">
+    <form class="form-box" action="/user/register" method="POST">
+     <h1>Register</h1>
+     <%- include ("./layout/partials/error_msg") %>
+    <label for="name" class="pure-material-textfield-outlined">
+        <input type="name" id="name" name="name" placeholder=" " value="<%= typeof name != 'undefined' ? name : '' %>" 
+        onkeyup="lettersOnly(this)" required/>
+        <span>Name</span>
+    </label>
+    <label for="email" class="pure-material-textfield-outlined">
+        <input type="email" id="email"  name="email" placeholder=" "  value="<%= typeof email != 'undefined' ? email : '' %>" required/>
+        <span>Email</span>
+     </label>
+    <label for="password" class="pure-material-textfield-outlined">
+        <input type="password" id="password" name="password" placeholder=" " value="<%= typeof password != 'undefined' ? password : '' %>" required/>
+        <span>Password</span>
+        <span toggle="#password" class="far fa-eye field-icon toggle-password"></span>
+    </label>
+    <label for="role" class="pure-material-select-outlined">
+        <select type="select" onchange="displayLabel(this.value);" name="role" id="role" required >
+            <option value="" disabled selected>Select your role</option>
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+        </select>
+        <span>Role</span>
+    </label>
+   <label for="course" class="pure-material-select-outlined">
+    <select type="select"  name="course" id="course" required>
+        <option value="" class="disabled" disabled selected>Select Course</option>
+        <% courses.forEach(course => { %> 
+               <option value='<%= course.course %>'><%= course.course %></option>
+        <% }) %> 
+    </select>
+    <span>Course</span>
+    </label>
+    <label class="pure-material-textfield-outlined" id="hideValuesOnSelect" >
+         <input placeholder=" " type="name" id="subjectName" name="subjectName">
+         <span>Subject Name</span>
+    </label>
+    <div class="form-button">
+        <a class="btn btn-primary" href="/user/login">Login Now</a>
+        <button class="btn btn-primary-contained" type="submit">Register</button>
+    </div>
+    </form>
+</div>

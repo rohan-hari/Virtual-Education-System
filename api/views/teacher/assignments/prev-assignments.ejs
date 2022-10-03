@@ -1,0 +1,39 @@
+<div class="previous-page-link">
+    <a href="/teacher">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+    <span class="heading">Previous Assignments</span>
+</div>
+<div class="md-ui component-data-table">
+    <div class="main-table-wrapper">
+      <table class="main-table-content">
+        <thead class="data-table-header">
+          <tr class="data-table-row">
+            <td class="table-datacell datatype-string">Topic</td>
+            <td class="table-datacell datatype-numeric">Submission Date</td>
+            <td class="table-datacell datatype-numeric" style="padding-right: 75px;">Actions</td>
+          </tr>
+        </thead>
+        <tbody class="data-table-content">
+            <% assignments.forEach(assignment => { %>
+            <tr class="data-table-row">
+                <td class="table-datacell datatype-string"><%= assignment.assignmentTopic %></td>
+                <td class="table-datacell datatype-numeric">
+                    <%= assignment.submitDate.toLocaleDateString('en-US',{day: 'numeric', month:'short'}) %> 
+                   (<%= assignment.submitDate.toLocaleTimeString('en-US',{hour: '2-digit', minute:'2-digit'}) %>)
+                </td>
+                <form action="/teacher/assignment/<%= assignment.id %>?_method=DELETE" method="POST">
+                <td class="table-datacell datatype-numeric">
+                    <button class="btn btn-primary btn-action" type="button" onclick="window.location.href='/teacher/assignment/<%= assignment.id %>'">View</button>
+                    <button class="btn btn-primary btn-danger btn-action">Delete</button>
+                </td>
+                </form>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+    </div>
+</div>
+  

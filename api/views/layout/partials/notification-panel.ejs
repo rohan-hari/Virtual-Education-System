@@ -1,0 +1,22 @@
+<div class="notification-panel" id="notification-panel">
+    <ul class="notification-list">
+     <% notifications.forEach(notification => { %>
+        <% if(notification.feesType == 'sem-fees' || notification.feesType == 'other-fees' ) { %> 
+          <% if(notification.userId == `${user.id}`) { %> 
+            <li class="notification-item">
+            <%= notification.message %>
+            <button class="btn btn-outline btn-primary btn-action" type="button" style="margin-left: 10px;"
+                  onclick="window.location.href='/student/<%= notification.feesType %>/<%= notification.userId %>'" >
+              Pay Now 
+            </button>
+            </li>
+           <% } %> 
+        <% } else { %> 
+          <li class="notification-item">
+            <%= notification.message %>
+          </li>
+        <% } %> 
+      </li>
+      <% }) %> 
+    </ul>
+</div>

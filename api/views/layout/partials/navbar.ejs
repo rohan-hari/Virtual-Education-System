@@ -1,0 +1,19 @@
+<% if (!user) { %>
+<div class="navbar">
+    <a class="logo">Virtual Education System</a>
+    <a class="nav-link btn btn-primary" href="/user/register">Register</a>
+    <a class="nav-link btn btn-primary" href="/user/login">Login</a>
+    <a class="nav-link btn btn-primary" href="/">Home</a>
+</div>
+<% } else { %> 
+<div class="navbar">
+    <a class="logo">Virtual Education System</a>
+    <a class="nav-link btn btn-primary" href="/user/logout">Logout</a>
+    <a class="nav-link btn btn-primary" href="/user/details/<%= user.id %> "><%= user.name %></a>
+    <% if (typeof show_notification != 'undefined') { %>
+        <a class="nav-link btn btn-primary" onclick="notificationPanel()" > Notification </a>
+        <%- include('./notification-panel') %> 
+    <% }  %> 
+</div>
+
+<% } %> 

@@ -1,0 +1,46 @@
+<div class="previous-page-link">
+  <a href="/student">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+      </svg>
+  </a>
+  <span class="heading">Sem Fees : <%= user.name %> </span>
+</div>
+<% if(user.semFeesPaid != "yes") { %>
+<div class="payment-form-container">
+  <form action="/student/sem-fees/<%= user.id %>?_method=PUT" method="post">
+    <h2 style="text-align: center;">Pay by Card</h2>
+    <h4 style="margin-top:-10px;text-align: center;font-weight: 500;">Rs.10000</h4>
+
+    <p class="payment-form-title">Card Number</p>
+    <input type="text" name="card" placeholder="Enter Card Number" 
+            onkeypress="return isNumber(event)" minlength="16" maxlength="16" 
+            oninvalid="this.setCustomValidity('Enter Valid Card Number')"
+            oninput="this.setCustomValidity('')" required>
+
+    <p class="payment-form-title" style="display: inline-block;">Expiration Date</p>
+    <p class="payment-form-title" style="display: inline-block; margin-left: 120px;"> CVV/CVC</p><br>
+
+    <input type="month" name="month" placeholder="Month" style="width: 54%; padding: 6px 3px;" required>
+    <input type="text" name="cvv" style="width: 35%; margin-left: 10px; padding: 6px 3px;"
+           onkeypress="return isNumber(event)" maxlength="3"
+           oninvalid="this.setCustomValidity('Enter Valid CVV Number')"
+           oninput="this.setCustomValidity('')" required>
+
+    <p class="payment-form-title">Card Holder Name</p>
+    <input type="text" name="name" placeholder="Enter Card Holder Name" required>
+    
+    <div class="payment-form-action">
+      <button class="btn btn-outline btn-danger btn-action" type="button" 
+      style="margin-right: 10px;">Cancel</button>
+      <button class="btn btn-outline btn-primary btn-action" type="submit">Pay Now</button>
+    </div>
+  </form>
+</div>
+<% } else { %> 
+ <p style="margin: 20px 45px; font-size: 22px;"> Fees paid</p>
+<% } %>  
+    
+
+      
+      

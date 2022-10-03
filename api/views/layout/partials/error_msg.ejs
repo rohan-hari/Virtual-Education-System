@@ -1,0 +1,22 @@
+<% if(locals.errors){ %> <% errors.forEach(function(error) { %>
+    <div class="boxmessage">
+      <%= error.msg %>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <% }); %> <% } %> <% if(success_msg != ''){ %>
+        <div class="boxmessage success">
+      <%= success_msg %>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <% } %> <% if(error_msg != ''){ %>
+        <div class="boxmessage">
+      <%= error_msg %>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <% } %> <% if(error != ''){ %>
+        <div class="boxmessage">
+      <%= error %>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+<% } %>
+    

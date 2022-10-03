@@ -1,0 +1,24 @@
+<div class="CreateClass">
+   <div class="my-modal-create">
+      <span class="close" id="js-close-create">
+          &times;
+      </span>
+        <br />
+      <form method="POST" action="/admin">
+        <label class="pure-material-textfield-outlined">
+          <input placeholder=" " type="text" name="course"  value="<%= course.course %>" required />
+          <span>Course Name</span>
+        </label>
+        <label for="status" class="pure-material-select-outlined">
+            <select type="select" name="status" required>
+                <option value="" disabled selected>Select a status</option>
+                <option value="allow-login">Allow Login</option>
+                <option value="allow-nologin">Don't Allow New Login</option>
+            </select>
+        <span>Status</span>
+        </label>
+        <button class="btn btn-primary-contained" type="submit">Create</button>
+      </form>
+   </div>
+</div>
+  

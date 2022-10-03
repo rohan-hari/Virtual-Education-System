@@ -1,0 +1,45 @@
+<ul class="card-container" style="margin-left: 65px;">
+<% courses.forEach(course => { %>
+    <li class="card-content">
+        <a href="/admin/<%= course.course %>">
+          <span class="card-title"><%= course.course %></span>
+        </a>
+        <div class="card-actions">
+            <a href="/admin/edit/<%= course.id %>">
+              <svg xmlns="http://www.w3.org/2000/svg" height="30px" width="30px" fill="none"  stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg>
+            </a>
+        </div>
+      </li>
+  <% }) %>
+   <li class="card-content" id="add-course-model">
+     <form action="/admin" method="POST">
+      <label class="pure-material-textfield-outlined" style="margin-top: 15px;">
+        <input placeholder=" " type="text" name="course" required />
+        <span>Course Name</span>
+     </label>
+     <label for="status" class="pure-material-select-outlined" style="margin-top: 5px; width:92%">
+      <select type="select" name="status" id="status" required >
+          <option value="" disabled selected>Set Status</option>
+          <option value="allow-login">Allow login</option>
+          <option value="dont-allow-logon">Dont allow login</option>
+      </select>
+      <span>Status</span>
+    </label>
+    <button class="btn btn-outline btn-danger btn-action" type="button" onClick="window.location.reload(true)" style="margin:15px 6px;" >
+      Cancel
+    </button>
+    <button class="btn btn-outline btn-primary btn-action" type="submit" >Save</button>
+    </form>
+  </li>
+  <li class="card-content" id="add-course-btn">
+     <span class="card-title" onclick="addCourse()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-42 -30 106 106" stroke="currentColor" stroke-width="3" >
+            <a>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+           </a>
+          </svg>
+     </span>
+  </li>
+</ul>

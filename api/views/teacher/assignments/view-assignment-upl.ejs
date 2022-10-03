@@ -1,0 +1,75 @@
+<div class="previous-page-link">
+    <a onclick="history.back()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+    <span class="heading">Topic : <% assignment.forEach(asst => {%> <%= asst.assignmentTopic %><% }) %> </span>
+</div>
+<!-- View Assignment Uploads -------------------------------------------->
+<div class="md-ui component-data-table">
+    <div class="main-table-wrapper">
+      <table class="main-table-content">
+        <thead class="data-table-header">
+          <tr class="data-table-row">
+            <td class="table-datacell datatype-string">Submitted By</td>
+            <td class="table-datacell datatype-numeric">Actions</td>
+          </tr>
+        </thead>
+      <% if(assignmentUpl.length > 0){ %> 
+        <% assignmentUpl.forEach(asstUpl => { %> 
+        <tbody class="data-table-content">
+          <tr class="data-table-row">
+            <td class="table-datacell datatype-string"><%= asstUpl.name %></td>
+            <td class="table-datacell datatype-numeric">
+              <button class="btn btn-primary btn-action" onclick="<%= asstUpl.name %>()">
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+          <% })  %> <% } else {%> 
+        <tbody class="data-table-content">
+          <tr class="data-table-row">
+            <td class="table-datacell datatype-string">
+              No one has submitted the assignment yet
+            </td>
+            <td class="table-datacell datatype-numeric"></td>
+            <td class="table-datacell datatype-numeric"></td>
+          </tr>
+        </tbody>
+        <% } %> 
+      </table>
+       </div>
+</div>
+<script>
+<% assignmentUpl.forEach(asstUpl => { %> 
+  function <%= asstUpl.name %>(){
+    const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
+    const byteCharacters = atob(b64Data)
+    const byteArrays = []
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+    const slice = byteCharacters.slice(offset, offset + sliceSize)
+    const byteNumbers = new Array(slice.length)
+    for (let i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i)
+    }
+    const byteArray = new Uint8Array(byteNumbers)
+    byteArrays.push(byteArray)
+    }
+    const blob = new Blob(byteArrays, {type: contentType})
+    return blob;
+    }
+    const contentType = 'application/pdf'
+    const b64Data = '<%= asstUpl.pdfUploadIstring %>'
+    const blob = b64toBlob(b64Data, contentType)
+    const blobUrl = URL.createObjectURL(blob)
+    let pdfWindow = window.open(`${blobUrl}`)
+
+    setTimeout(function() {
+      let name = '<%= asstUpl.name %>'
+      pdfWindow.document.title = `Submitted by - ${name}`;
+    }, 10);
+  }
+<% }) %>
+</script>

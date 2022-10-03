@@ -1,0 +1,20 @@
+<div class="previous-page-link">
+    <a onclick="history.back()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+    <span class="heading">User Details : <%= users.name %> </span>
+</div>
+
+<div style="margin:20px 45px">
+<span class="label-heading" style="font-size: 20px;">Name: </span><%= users.name %><br>
+<span class="label-heading" style="font-size: 20px;">Email: </span><%= users.email %><br>
+<span class="label-heading" style="font-size: 20px;">Role: </span><%= users.role %><br>
+<span class="label-heading" style="font-size: 20px;">Course: </span><%= users.course %><br>
+<% if(users.role == "teacher"){ %> 
+<span class="label-heading" style="font-size: 20px;">Subject: </span><%= users.subjectName %><br>
+<% } else { %> 
+<span class="label-heading" style="font-size: 20px;">Fees Paid: </span><%= users.semFeesPaid %><br>
+<% } %> 
+</div>

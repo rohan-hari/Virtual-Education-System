@@ -1,0 +1,49 @@
+.form-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.form-box {
+  position: relative;
+  border-radius: 15px;
+  width: 380px;
+  padding: 16px 36px;
+  border: 1px solid lightgray;
+  box-shadow: 0 3px 1px -2px #00000033, 0 2px 2px 0 #00000024;
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+}
+.form-box > label {
+  display: block;
+  margin: 24px 0;
+}
+.form-box > .form-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 -4px 0 -17px;
+}
+.boxmessage {
+  padding: 13px;
+  background-color: #f44336;
+  color: white;
+  border-radius: 5px;
+}
+.success {
+  background-color: #029666;
+}
+.closebtn {
+  margin-left: 18px;
+  color: white;
+  font-weight: 500;
+  float: right;
+  font-size: 22px;
+  line-height: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: black;
+}

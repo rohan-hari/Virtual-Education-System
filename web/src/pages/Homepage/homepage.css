@@ -1,0 +1,30 @@
+.container {
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.container > img {
+  width: 35%;
+  max-width: 800px;
+}
+.container > .welcome-card h1 {
+  margin: 25px 0 -15px;
+}
+.container > .welcome-card .divider {
+  margin: 35px auto;
+}
+.container > .welcome-card {
+  width: 400px;
+  border-radius: 25px;
+  background-color: white;
+  border: 1px solid #dad9d9;
+  box-shadow: 0 3px 1px -2px #00000033, 0 2px 2px 0 #00000024;
+  text-align: center;
+}
+.container > .welcome-card > .card-body {
+  font-size: 18px;
+  font-weight: 500;
+  color: #5f6368;
+  margin-bottom: 40px;
+}

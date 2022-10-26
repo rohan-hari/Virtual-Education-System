@@ -5,14 +5,21 @@
 }
 body,
 html {
-  font-family: "Poppins", sans-serif;
+  font-family: "Open sans", sans-serif;
   background-color: #e7ecef;
+  margin-top: 45px;
 }
 a {
   cursor: pointer;
   text-decoration: none;
 }
 h1 {
+  margin: 20px 0;
   font-size: 36px;
   font-weight: 500;
+}
+.divider {
+  width: 95%;
+  margin: 30px auto;
+  border: 1px solid #e7e7e7;
 }

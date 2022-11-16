@@ -1,6 +1,6 @@
 # Virtual Education System 
 
-It is an online learning environment that enables live contact between the teacher and the learners while they are engaged in learning activities. It is developed using Node.js, Express, MongoDB
+It is an online learning environment that enables live contact between the teacher and the learners while they are engaged in learning activities. 
 
 ## Status
 <h3>
